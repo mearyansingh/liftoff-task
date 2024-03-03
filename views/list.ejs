@@ -1,0 +1,35 @@
+<%- include("header") -%>
+	<main class="d-flex flex-column min-vh-100 ">
+		<div class="container flex-grow-1 my-5">
+			<div class="mx-auto col-12 col-lg-6">
+				<div class="card card-time mb-5" id="heading">
+					<h1 class="text-light mb-0 text-center ">
+						<%= listTitle %>
+					</h1>
+				</div>
+			</div>
+			<ul class="list-group w-100 w-lg-50 mx-auto">
+				<% for (var i=0; i<newListItems.length; i++){ %>
+					<li class="list-group-item d-flex align-items-center p-4">
+						<input class="form-check-input me-3" type="checkbox" value="" id=<%=newListItems[i] %>>
+						<label class="form-check-label stretched-link text-body-tertiary fs-5" for=<%=newListItems[i] %>>
+							<%=newListItems[i] %>
+						</label>
+					</li>
+					<%}%>
+						<li class="list-group-item">
+							<form name="item" action="/" method="POST" class="d-flex gap-3 flex-nowrap align-items-center">
+								<input type="text" name="newItem" placeholder="Add new item" autocomplete="off" required
+									class="flex-grow-1 text-body-tertiary fs-5" />
+								<button type="submit" style="width: 50px; height: 50px;" name="list"
+									class="flex-shrink-0 rounded-circle fs-1 d-flex align-items-center justify-content-center text-light add-task-btn border-0"
+									value=<%=listTitle %>
+									>
+									+
+								</button>
+							</form>
+						</li>
+			</ul>
+		</div>
+	</main>
+	<%- include("footer") -%>
